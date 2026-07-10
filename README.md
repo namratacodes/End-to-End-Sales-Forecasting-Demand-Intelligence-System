@@ -1,6 +1,6 @@
 # Sales Forecasting & Demand Intelligence System
 
-End-to-end sales forecasting and demand intelligence project built on the Superstore Sales dataset (2015–2018). This project covers exploratory analysis, time series decomposition, multi model forecasting, category/region-level forecasting, anomaly detection, product demand segmentation, an interactive dashboard, and an executive business report.
+End to end sales forecasting and demand intelligence project built on the Superstore Sales dataset (2015–2018). This project covers exploratory analysis, time series decomposition, multi model forecasting, category/region level forecasting, anomaly detection, product demand segmentation, an interactive dashboard, and an executive business report.
 
 **Live Dashboard:** https://end-to-end-sales-forecasting-demand-intelligence-system-dnbwqn.streamlit.app/
 
@@ -32,7 +32,7 @@ SalesForecasting_NamrataSingh/
 ### 1. Data Exploration (Task 1)
 Loaded and cleaned the Superstore dataset, parsed dates (verified as `DD/MM/YYYY`), engineered time features (year, month, week, quarter, season), and aggregated sales to daily, weekly, and monthly granularity. Key findings:
 - Technology, Furniture, and Office Supplies contribute roughly equal revenue shares
-- East region shows the most consistent year-over-year growth; South is the most volatile
+- East region shows the most consistent year over year growth; South is the most volatile
 - Shipping speed does not meaningfully vary by region
 - Sales are strongly seasonal ; September, November, and December are consistently the strongest months; January and February the weakest
 
@@ -48,19 +48,19 @@ Built and compared three forecasting approaches on a 3 month holdout (Oct–Dec 
 | Prophet | 21,542 | 22,056 | 23.12% |
 | **XGBoost (recommended)** | **17,721** | **19,906** | **18.01%** |
 
-XGBoost was selected for production use based on lowest error across all three metrics, though all three models under-predicted the November 2018 sales spike , a noted limitation.
+XGBoost was selected for production use based on lowest error across all three metrics, though all three models under predicted the November 2018 sales spike , a noted limitation.
 
 ### 4. Category & Region Forecasting (Task 4)
 Repeated the XGBoost model across Furniture, Technology, Office Supplies, West, and East. Furniture showed the strongest projected growth; Technology was the only segment forecast to decline.
 
 ### 5. Anomaly Detection (Task 5)
-Applied both Isolation Forest and Z-score methods to weekly sales data. The two methods agreed on the most extreme spikes (e.g., the September 2015 back to school surge) while diverging on borderline cases — a documented comparison of method sensitivity.
+Applied both Isolation Forest and Z score methods to weekly sales data. The two methods agreed on the most extreme spikes (e.g., the September 2015 back to school surge) while diverging on borderline cases , a documented comparison of method sensitivity.
 
 ### 6. Product Demand Segmentation (Task 6)
-Clustered 17 product sub-categories into 4 demand segments using K Means (features: total sales, growth rate, volatility, average order value), visualized via PCA. Segments range from "High Volume, Established Demand" to "Declining, High Value" (Machines).
+Clustered 17 product sub categories into 4 demand segments using K Means (features: total sales, growth rate, volatility, average order value), visualized via PCA. Segments range from "High Volume, Established Demand" to "Declining, High Value" (Machines).
 
 ### 7. Interactive Dashboard (Task 7)
-A 4-page Streamlit app (`app.py`):
+A 4 page Streamlit app (`app.py`):
 - **Sales Overview** : KPIs, yearly/monthly trends, region and category breakdowns with filters
 - **Forecast Explorer** : select category/region and forecast horizon (1–3 months), view XGBoost forecast with model accuracy metrics
 - **Anomaly Report** : weekly sales with flagged anomalies and a detail table
